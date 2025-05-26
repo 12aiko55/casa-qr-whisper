@@ -8,7 +8,7 @@ const Footer = () => {
             <img 
               src="/lovable-uploads/feb77724-1c55-4c64-9a68-7ae2686f63e1.png" 
               alt="Airbnb Concierge" 
-              className="h-8 w-auto filter brightness-0 invert"
+              className="h-12 w-auto filter brightness-0 invert"
             />
           </div>
           <p className="text-gray-400 mb-8">

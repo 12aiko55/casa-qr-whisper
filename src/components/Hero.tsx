@@ -1,4 +1,3 @@
-
 import { QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -12,7 +11,7 @@ const Hero = () => {
               <img 
                 src="/lovable-uploads/feb77724-1c55-4c64-9a68-7ae2686f63e1.png" 
                 alt="Airbnb Concierge" 
-                className="h-12 w-auto"
+                className="h-20 w-auto"
               />
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
