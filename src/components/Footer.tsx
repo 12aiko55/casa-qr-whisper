@@ -4,9 +4,12 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center">
-          <div className="flex items-center justify-center gap-2 text-lg font-medium mb-4">
-            <span className="font-bold">airbnb</span>
-            <span className="text-gray-400">CONCIERGE</span>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <img 
+              src="/lovable-uploads/feb77724-1c55-4c64-9a68-7ae2686f63e1.png" 
+              alt="Airbnb Concierge" 
+              className="h-8 w-auto filter brightness-0 invert"
+            />
           </div>
           <p className="text-gray-400 mb-8">
             Personalized guest assistance for your Airbnb property

@@ -8,9 +8,12 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8 animate-fade-in">
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-sm font-medium text-gray-600 mb-4">
-              <span className="font-bold text-black">airbnb</span>
-              <span>CONCIERGE</span>
+            <div className="flex items-center gap-2 mb-4">
+              <img 
+                src="/lovable-uploads/feb77724-1c55-4c64-9a68-7ae2686f63e1.png" 
+                alt="Airbnb Concierge" 
+                className="h-12 w-auto"
+              />
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               Personalized guest assistance for your{" "}
