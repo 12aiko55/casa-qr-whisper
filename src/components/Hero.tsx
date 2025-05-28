@@ -1,3 +1,4 @@
+
 import { QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -38,8 +39,9 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               className="px-8 py-6 text-lg font-semibold rounded-2xl border-2 hover:bg-gray-50 transition-all duration-300"
+              onClick={() => window.location.href = '/about'}
             >
-              Learn more
+              About Us
             </Button>
           </div>
         </div>
