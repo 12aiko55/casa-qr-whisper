@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
+import AddPropertyForm from "@/components/AddPropertyForm";
 
 const Dashboard = () => {
   // Mock properties data - will be replaced with Supabase data
-  const [properties] = useState([
+  const [properties, setProperties] = useState([
     {
       id: 1,
       name: "Cozy Beach House",
@@ -35,6 +36,10 @@ const Dashboard = () => {
     }
   ]);
 
+  const handleAddProperty = (newProperty: any) => {
+    setProperties(prev => [...prev, newProperty]);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -46,10 +51,7 @@ const Dashboard = () => {
             <p className="text-gray-600 mt-2">Manage your Airbnb properties and AI assistants</p>
           </div>
           
-          <Button className="bg-green-600 hover:bg-green-700">
-            <Plus className="w-4 h-4 mr-2" />
-            Add Property
-          </Button>
+          <AddPropertyForm onAddProperty={handleAddProperty} />
         </div>
 
         {/* Stats Cards */}
