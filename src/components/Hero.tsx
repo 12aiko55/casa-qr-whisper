@@ -1,6 +1,7 @@
 
 import { QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -29,12 +30,14 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
-              size="lg" 
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
-            >
-              Get started
-            </Button>
+            <Link to="/register">
+              <Button 
+                size="lg" 
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto"
+              >
+                Get started
+              </Button>
+            </Link>
             <Button 
               variant="outline" 
               size="lg"
@@ -43,6 +46,12 @@ const Hero = () => {
             >
               About Us
             </Button>
+          </div>
+          
+          <div className="flex items-center gap-4 text-sm text-gray-600">
+            <Link to="/login" className="hover:text-green-600 transition-colors">
+              Already have an account? Sign in
+            </Link>
           </div>
         </div>
         
