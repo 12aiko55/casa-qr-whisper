@@ -46,7 +46,7 @@ const Register = () => {
               Back to Home
             </Button>
           </Link>
-          <Link to="/#pricing">
+          <Link to="/pricing">
             <Button variant="outline" size="sm" className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100">
               View Pricing
             </Button>

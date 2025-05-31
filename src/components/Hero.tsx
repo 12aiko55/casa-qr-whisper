@@ -38,11 +38,11 @@ const Hero = () => {
                   <span className="hidden sm:inline">Dashboard</span>
                 </Button>
               </Link>
-              <a href="#pricing">
+              <Link to="/pricing">
                 <Button variant="outline" size="sm" className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100">
                   Pricing
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

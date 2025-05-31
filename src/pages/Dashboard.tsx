@@ -77,7 +77,7 @@ const Dashboard = () => {
           </div>
           
           <div className="flex gap-2">
-            <Link to="/#pricing">
+            <Link to="/pricing">
               <Button variant="outline" className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100">
                 View Pricing
               </Button>
