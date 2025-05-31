@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -37,6 +38,21 @@ const Register = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-50 px-4">
       <div className="w-full max-w-md">
+        {/* Header with back button and pricing */}
+        <div className="flex justify-between items-center mb-8">
+          <Link to="/">
+            <Button variant="outline" size="sm">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Home
+            </Button>
+          </Link>
+          <Link to="/#pricing">
+            <Button variant="outline" size="sm" className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100">
+              View Pricing
+            </Button>
+          </Link>
+        </div>
+
         <div className="flex justify-center mb-8">
           <img 
             src="/lovable-uploads/feb77724-1c55-4c64-9a68-7ae2686f63e1.png" 

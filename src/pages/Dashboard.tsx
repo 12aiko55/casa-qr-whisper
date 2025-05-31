@@ -1,11 +1,13 @@
 
 import { useState } from "react";
-import { Plus, Home, QrCode, Settings, Edit, Trash2 } from "lucide-react";
+import { Plus, Home, QrCode, Settings, Edit, Trash2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import AddPropertyForm from "@/components/AddPropertyForm";
+import EditPropertyForm from "@/components/EditPropertyForm";
 
 const Dashboard = () => {
   // Mock properties data - will be replaced with Supabase data
@@ -36,8 +38,23 @@ const Dashboard = () => {
     }
   ]);
 
+  const [editingProperty, setEditingProperty] = useState(null);
+
   const handleAddProperty = (newProperty: any) => {
     setProperties(prev => [...prev, newProperty]);
+  };
+
+  const handleEditProperty = (updatedProperty: any) => {
+    setProperties(prev => 
+      prev.map(prop => 
+        prop.id === updatedProperty.id ? updatedProperty : prop
+      )
+    );
+    setEditingProperty(null);
+  };
+
+  const handleDeleteProperty = (propertyId: number) => {
+    setProperties(prev => prev.filter(prop => prop.id !== propertyId));
   };
 
   return (
@@ -46,12 +63,27 @@ const Dashboard = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">My Properties</h1>
-            <p className="text-gray-600 mt-2">Manage your Airbnb properties and AI assistants</p>
+          <div className="flex items-center gap-4">
+            <Link to="/">
+              <Button variant="outline" size="sm">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Home
+              </Button>
+            </Link>
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">My Properties</h1>
+              <p className="text-gray-600 mt-2">Manage your Airbnb properties and AI assistants</p>
+            </div>
           </div>
           
-          <AddPropertyForm onAddProperty={handleAddProperty} />
+          <div className="flex gap-2">
+            <Link to="/#pricing">
+              <Button variant="outline" className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100">
+                View Pricing
+              </Button>
+            </Link>
+            <AddPropertyForm onAddProperty={handleAddProperty} />
+          </div>
         </div>
 
         {/* Stats Cards */}
@@ -131,7 +163,12 @@ const Dashboard = () => {
                   </div>
                   
                   <div className="flex gap-2 pt-4">
-                    <Button variant="outline" size="sm" className="flex-1">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => setEditingProperty(property)}
+                    >
                       <Edit className="w-4 h-4 mr-1" />
                       Edit
                     </Button>
@@ -142,7 +179,12 @@ const Dashboard = () => {
                     <Button variant="outline" size="sm">
                       <Settings className="w-4 h-4" />
                     </Button>
-                    <Button variant="outline" size="sm" className="text-red-600 hover:text-red-700">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="text-red-600 hover:text-red-700"
+                      onClick={() => handleDeleteProperty(property.id)}
+                    >
                       <Trash2 className="w-4 h-4" />
                     </Button>
                   </div>
@@ -152,6 +194,14 @@ const Dashboard = () => {
           ))}
         </div>
       </main>
+
+      {editingProperty && (
+        <EditPropertyForm 
+          property={editingProperty}
+          onEditProperty={handleEditProperty}
+          onClose={() => setEditingProperty(null)}
+        />
+      )}
     </div>
   );
 };
