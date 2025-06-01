@@ -1,3 +1,4 @@
+
 import { QrCode, User, LogIn, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -100,6 +101,19 @@ const Hero = () => {
           </div>
           
           <div className="relative animate-scale-in">
+            {/* Real QR Code Photo */}
+            <div className="mb-8">
+              <img 
+                src="/lovable-uploads/d3e8a536-8dab-47b2-9a75-7278d4e6e656.png" 
+                alt="QR Code in real Airbnb setting" 
+                className="w-full h-auto rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+              />
+              <p className="text-center text-gray-600 mt-4 text-sm">
+                QR code displayed in your property for easy guest access
+              </p>
+            </div>
+
+            {/* Mockup Chat Interface */}
             <div className="bg-white rounded-3xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
               <div className="bg-gray-100 rounded-2xl p-6 mb-6">
                 <QrCode className="w-32 h-32 mx-auto text-gray-800" />
